@@ -1,6 +1,6 @@
 #! /bin/sh
 
-SESSION="TODO FIXME"
+SESSION="$(cat .session-cookie)"
 
 YEAR="$(date +%Y)"
 DAY="$(date +%-d)"
