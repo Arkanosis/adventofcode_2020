@@ -3,9 +3,9 @@
 SESSION="$(cat .session-cookie)"
 
 YEAR="$(date +%Y)"
-DAY="$(date +%-d)"
+DAY="$(date +%d)"
 
-curl -s --compressed "https://adventofcode.com/$YEAR/day/$DAY/input" -H "Cookie: session=$SESSION" > "$DAY.input"
+curl -s --compressed "https://adventofcode.com/$YEAR/day/$(echo $DAY | sed 's/^0//')/input" -H "Cookie: session=$SESSION" > "$DAY.input"
 
 if ! [ -f "${DAY}_1.py" ] && ! [ -f "${DAY}_2.py" ]; then
     cat <<EOF | tee "${DAY}_1.py" > "${DAY}_2.py"
